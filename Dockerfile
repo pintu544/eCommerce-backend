@@ -11,7 +11,8 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Install dependencies first (better layer caching)
 COPY package*.json ./
-RUN npm ci --only=production
+# Use npm install instead of npm ci since there's no package-lock.json
+RUN npm install --omit=dev
 
 # Copy app source with proper ownership
 COPY --chown=appuser:appgroup . .
