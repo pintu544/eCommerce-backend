@@ -12,7 +12,7 @@ const cartRoutes = require('./routes/cartRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors("https://electroniccommerce.netlify.app"));
 app.use(express.json());
 
 // Routes
